@@ -67,8 +67,8 @@ export const servicePages: Record<string, ServicePage> = {
     treatmentTitle: "검진 진행 방식",
     treatmentDesc: "대상자 확인부터 결과 상담까지 편안하게 안내합니다.",
     treatments: [
-      { title: "검진 전 확인", items: ["대상자 여부와 검진 항목을 확인합니다.", "검사 전 금식과 복용약을 안내합니다.", "대장내시경이 필요한 경우 장정결을 설명합니다."] },
-      { title: "검사 시행", items: ["문진과 기본 검사를 진행합니다.", "위·대장내시경 등 필요한 검사를 연결합니다.", "검사 중 불편감을 줄이는 동선을 준비합니다."] },
+      { title: "검진 전 확인", items: ["대상자 여부와 검진 항목을 확인합니다.", "검사 전 금식과 복용약을 안내합니다.", "필요 항목에 따라 사전 준비사항을 설명합니다."] },
+      { title: "검사 시행", items: ["문진과 기본 검사를 진행합니다.", "혈액검사·초음파 등 필요한 검사를 진행합니다.", "검사 중 불편감을 줄이는 동선을 준비합니다."] },
       { title: "결과 상담", items: ["결과를 이해하기 쉽게 설명합니다.", "이상 소견은 추가 검사와 치료 계획을 세웁니다.", "추적 검진 시기를 안내합니다."] }
     ],
     summaryTitle: "국가검진 핵심 요약",
@@ -81,13 +81,13 @@ export const servicePages: Record<string, ServicePage> = {
     english: "Comprehensive Checkup",
     eyebrow: "CHECKUP CENTER · 종합검진",
     subtitle: "나이, 가족력, 생활습관에 맞춘 검진 구성을 지향합니다.",
-    badges: ["맞춤 설계", "혈액검사", "초음파", "내시경", "결과 상담"],
+    badges: ["맞춤 설계", "혈액검사", "초음파", "심전도", "결과 상담"],
     image: pickImage(1),
     introTitle: "종합검진이란?",
     introEnglish: "Personalized Checkup",
     introParagraphs: ["종합검진은 현재 건강 상태와 앞으로의 질환 위험을 함께 확인하는 과정입니다.", "많은 검사를 무조건 시행하기보다 연령, 가족력, 증상, 생활습관에 맞춰 필요한 항목을 우선합니다.", "검진 후에는 수치의 의미를 설명하고 생활습관 관리와 진료 계획으로 이어지게 합니다."],
     symptomTitle: "검진 설계 포인트",
-    symptomGroups: [{ label: "확인 항목", items: [{ title: "생활습관", desc: "음주·흡연·운동 평가" }, { title: "가족력", desc: "심혈관·암 위험 확인" }, { title: "현재 증상", desc: "소화기·호흡기 증상 확인" }] }, { label: "추적 필요", danger: true, items: [{ title: "혈압·혈당", desc: "만성질환 위험 확인" }, { title: "간기능·지질", desc: "대사질환 평가" }, { title: "초음파·내시경", desc: "필요 시 정밀 검사" }] }],
+    symptomGroups: [{ label: "확인 항목", items: [{ title: "생활습관", desc: "음주·흡연·운동 평가" }, { title: "가족력", desc: "심혈관·암 위험 확인" }, { title: "현재 증상", desc: "소화기·호흡기 증상 확인" }] }, { label: "추적 필요", danger: true, items: [{ title: "혈압·혈당", desc: "만성질환 위험 확인" }, { title: "간기능·지질", desc: "대사질환 평가" }, { title: "초음파·심전도", desc: "필요 시 정밀 검사" }] }],
     treatmentTitle: "종합검진 진행 방식",
     treatmentDesc: "필요한 검사를 우선해 합리적인 검진 흐름을 만듭니다.",
     treatments: chronicTreatments,
@@ -146,14 +146,14 @@ export const servicePages: Record<string, ServicePage> = {
     introImage: "https://cdn.imweb.me/upload/S20260108b9005a7eb2710/c027be3686a76.jpeg",
     introTitle: "소화기 진료란?",
     introEnglish: "Digestive Care",
-    introParagraphs: ["소화기 진료는 식도, 위, 대장, 간, 담도, 췌장과 관련된 증상을 폭넓게 평가합니다.", "소화불량처럼 흔한 증상도 반복되거나 경고 증상이 동반되면 정확한 평가가 필요합니다.", "내시경, 초음파, 혈액검사 결과를 함께 보며 필요한 치료와 추적 계획을 세웁니다."],
+    introParagraphs: ["소화기 진료는 식도, 위, 대장, 간, 담도, 췌장과 관련된 증상을 폭넓게 평가합니다.", "소화불량처럼 흔한 증상도 반복되거나 경고 증상이 동반되면 정확한 평가가 필요합니다.", "초음파, 혈액검사 결과를 함께 보며 필요한 치료와 추적 계획을 세웁니다."],
     symptomTitle: "소화기 진료가 필요한 증상",
     symptomGroups: [{ label: "흔한 증상", items: [{ title: "소화불량", desc: "더부룩함·체함" }, { title: "복통", desc: "반복되는 복부 통증" }, { title: "속쓰림", desc: "역류 증상" }] }, { label: "주의 증상", danger: true, items: [{ title: "혈변·흑색변", desc: "출혈 가능성" }, { title: "체중 감소", desc: "정밀 평가 필요" }, { title: "황달", desc: "간담도 평가 필요" }] }],
     treatmentTitle: "소화기 진료 방식",
     treatmentDesc: "증상과 검사 결과를 연결해 원인을 찾아갑니다.",
     treatments: chronicTreatments,
     summaryTitle: "소화기 진료 핵심 요약",
-    summaries: ["반복되는 소화기 증상은 정확한 평가가 필요합니다.", "내시경·초음파·혈액검사를 증상에 맞게 선택합니다.", "치료 후에도 재발과 악화를 줄이기 위한 관리가 중요합니다."]
+    summaries: ["반복되는 소화기 증상은 정확한 평가가 필요합니다.", "초음파·혈액검사를 증상에 맞게 선택합니다.", "치료 후에도 재발과 악화를 줄이기 위한 관리가 중요합니다."]
   },
   "departments/cardiology": {
     slug: "departments/cardiology",
