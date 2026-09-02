@@ -33,12 +33,12 @@ export default function Header() {
     <>
       <header className={`group/header fixed left-0 top-0 z-[99990] w-full border-b border-[#EEEEEE] bg-white transition-shadow duration-300 ${scrolled ? "shadow-[0_4px_15px_rgba(61,155,106,0.10)]" : ""}`}>
         {/* 데스크톱 드롭다운 배경 */}
-        <div className="absolute left-0 top-[80px] hidden h-0 w-full border-y border-transparent bg-white shadow-none transition-all duration-300 group-hover/header:h-[340px] group-hover/header:border-y-[#e5e7eb] group-hover/header:shadow-[0_10px_20px_rgba(0,0,0,0.06)] xl:top-[200px] xl:block" />
+        <div className="absolute left-0 top-[80px] hidden h-0 w-full border-y border-transparent bg-white shadow-none transition-all duration-300 group-hover/header:h-[340px] group-hover/header:border-y-[#e5e7eb] group-hover/header:shadow-[0_10px_20px_rgba(0,0,0,0.06)] xl:top-[100px] xl:block" />
 
-        <div className="relative z-20 mx-auto flex h-[80px] max-w-[1680px] items-center justify-end px-4 xl:h-[200px] xl:justify-between xl:px-6 2xl:px-8">
+        <div className="relative z-20 mx-auto flex h-[80px] max-w-[1680px] items-center justify-end px-4 xl:h-[100px] xl:justify-between xl:px-6 2xl:px-8">
           {/* 로고 */}
-          <Link href="/" className="absolute left-1/2 top-1/2 w-[78vw] max-w-[420px] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center xl:static xl:w-auto xl:max-w-none xl:translate-x-0 xl:translate-y-0 xl:shrink-0" aria-label={`${clinic.shortName} 메인으로 이동`}>
-            <Image src={clinic.logoPrimary} alt={clinic.name} width={900} height={300} className="w-full h-auto object-contain xl:h-[160px] xl:w-auto" priority />
+          <Link href="/" className="absolute left-1/2 top-1/2 w-[72vw] max-w-[380px] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center xl:static xl:w-[400px] xl:max-w-none xl:translate-x-0 xl:translate-y-0 xl:shrink-0" aria-label={`${clinic.shortName} 메인으로 이동`}>
+            <Image src={clinic.logoPrimary} alt={clinic.name} width={800} height={200} className="w-full h-auto object-contain" priority />
           </Link>
 
           {/* 데스크톱 네비 */}
