@@ -19,22 +19,21 @@ interface SlideData {
 
 const slides: SlideData[] = [
   {
-    image: imageSet.hero[1],
-    badgeEn: "DOCTORS",
-    badgeKo: "의료진",
+    image: imageSet.hero[0],
+    badgeEn: "FAMILY MEDICINE",
+    badgeKo: "가정의학과",
     titleParts: [
-      { text: "믿을 수 있는 " },
-      { text: "내과전문의", highlight: true },
-      { text: "와 함께" }
+      { text: "내포신도시의 " },
+      { text: "건강 주치의", highlight: true }
     ],
-    subtitle: "풍부한 임상 경험을 바탕으로 정확하고 따뜻한 진료를 제공합니다.",
-    tagLabel: "Medical Team",
-    tags: ["내과전문의", "만성질환 관리", "건강검진"],
+    subtitle: "가정의학과 전문의 박소영 원장이 가족 모두의 건강을 꾸준히 함께 지킵니다.",
+    tagLabel: "진료과목",
+    tags: ["가정의학과", "만성질환", "건강검진", "수액클리닉"],
     buttonText: "의료진 소개 보기 →",
     buttonHref: "/doctors"
   },
   {
-    image: imageSet.hero[2],
+    image: imageSet.hero[1],
     badgeEn: "MAIN SERVICES",
     badgeKo: "진료안내",
     titleParts: [
@@ -42,11 +41,11 @@ const slides: SlideData[] = [
       { text: "수액·만성질환", highlight: true },
       { text: "까지" }
     ],
-    subtitle: "건강검진, 고혈압·당뇨·고지혈증 관리, 프리미엄 수액클리닉을 한 공간에서 경험하세요.",
-    tagLabel: "진료과목",
-    tags: ["건강검진", "고혈압", "당뇨", "수액클리닉", "초음파", "골다공증"],
+    subtitle: "건강검진, 고혈압·당뇨·고지혈증 관리, 프리미엄 1인 수액클리닉을 한 공간에서 경험하세요.",
+    tagLabel: "주요 진료",
+    tags: ["건강검진", "고혈압", "당뇨", "고지혈증", "수액클리닉", "골다공증"],
     buttonText: "진료 안내 보기 →",
-    buttonHref: "/departments/gastroenterology"
+    buttonHref: "/chronic/hypertension"
   }
 ];
 
@@ -54,7 +53,7 @@ function TitleLine({ parts }: { parts: { text: string; highlight?: boolean }[] }
   return (
     <>
       {parts.map((p, i) => p.highlight ? (
-        <span key={i} className="text-sky-400" style={{ fontSize: "inherit" }}>{p.text}</span>
+        <span key={i} className="text-[#7ee8b8]" style={{ fontSize: "inherit" }}>{p.text}</span>
       ) : (
         <span key={i} className="text-white" style={{ fontSize: "inherit" }}>{p.text}</span>
       ))}
@@ -104,10 +103,10 @@ export default function HeroCarousel() {
           <div className="text-center max-w-[22rem] min-[420px]:max-w-2xl lg:max-w-5xl mx-auto">
             <div key={`badge-${current}`} className="animate-fade-in-up mb-4 md:mb-6">
               <div className="inline-flex items-center gap-2 sm:gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-3 py-1.5 sm:px-5 sm:py-2">
-                <div className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-[#3d9b6a] animate-pulse" />
                 <span className="text-xs sm:text-sm md:text-lg text-white/80 font-medium tracking-wider uppercase">{slide.badgeEn}</span>
                 <span className="w-px h-3.5 md:h-5 bg-white/30" />
-                <span className="text-xs sm:text-sm md:text-lg text-sky-300 font-medium">{slide.badgeKo}</span>
+                <span className="text-xs sm:text-sm md:text-lg text-[#a8f0cd] font-medium">{slide.badgeKo}</span>
               </div>
             </div>
 
@@ -123,9 +122,9 @@ export default function HeroCarousel() {
 
             <div key={`tags-${current}`} className="animate-fade-in-up animation-delay-400">
               <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 md:gap-2.5 mb-6 md:mb-8">
-                <span className="px-2.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-full bg-sky-500/20 text-sky-300 text-xs sm:text-sm md:text-base font-semibold border border-sky-400/30">{slide.tagLabel}</span>
+                <span className="px-2.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-full bg-[#3d9b6a]/20 text-[#a8f0cd] text-xs sm:text-sm md:text-base font-semibold border border-[#3d9b6a]/30">{slide.tagLabel}</span>
                 {slide.tags.map((tag) => (
-                  <span key={tag} className="px-2.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-full bg-white/8 backdrop-blur-sm text-white/70 text-xs sm:text-sm md:text-base border border-white/10 hover:bg-sky-500/20 hover:text-sky-300 hover:border-sky-400/30 transition-all duration-300 cursor-default">{tag}</span>
+                  <span key={tag} className="px-2.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-full bg-white/8 backdrop-blur-sm text-white/70 text-xs sm:text-sm md:text-base border border-white/10 hover:bg-[#3d9b6a]/20 hover:text-[#a8f0cd] hover:border-[#3d9b6a]/30 transition-all duration-300 cursor-default">{tag}</span>
                 ))}
               </div>
             </div>
@@ -135,7 +134,7 @@ export default function HeroCarousel() {
                 <Link href={slide.buttonHref} className="group w-full min-[420px]:w-auto inline-flex justify-center border-2 border-white/40 text-white font-semibold px-5 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 rounded-lg hover:bg-white/10 hover:-translate-y-0.5 transition-all duration-300 backdrop-blur-sm text-sm sm:text-base md:text-lg whitespace-nowrap">
                   {slide.buttonText}
                 </Link>
-                <button onClick={handleReservation} className="w-full min-[420px]:w-auto bg-sky-500 text-white font-semibold px-5 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 rounded-lg hover:bg-sky-400 hover:-translate-y-0.5 transition-all duration-300 shadow-lg shadow-sky-500/25 hover:shadow-sky-400/30 text-xs sm:text-base md:text-lg cursor-pointer whitespace-nowrap">
+                <button onClick={handleReservation} className="w-full min-[420px]:w-auto bg-[#3d9b6a] text-white font-semibold px-5 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 rounded-lg hover:bg-[#3d9b6a] hover:-translate-y-0.5 transition-all duration-300 shadow-lg shadow-[#3d9b6a]/25 hover:shadow-[#3d9b6a]/30 text-xs sm:text-base md:text-lg cursor-pointer whitespace-nowrap">
                   {clinic.phone ? `전화 예약: ${clinic.phone}` : clinic.phoneLabel}
                 </button>
               </div>
@@ -154,7 +153,7 @@ export default function HeroCarousel() {
       <div className="absolute bottom-5 sm:bottom-8 left-1/2 -translate-x-1/2 z-[4] flex items-center gap-3">
         {slides.map((_, i) => (
           <button key={i} onClick={() => goTo(i)} className={`relative transition-all duration-300 ${i === current ? "w-10" : "w-3 hover:scale-125"} h-3 rounded-full`} aria-label={`슬라이드 ${i + 1}`}>
-            <div className={`absolute inset-0 rounded-full transition-all duration-300 ${i === current ? "bg-sky-400 shadow-lg shadow-sky-400/30" : "bg-white/40 hover:bg-white/60"}`} />
+            <div className={`absolute inset-0 rounded-full transition-all duration-300 ${i === current ? "bg-[#3d9b6a] shadow-lg shadow-sky-400/30" : "bg-white/40 hover:bg-white/60"}`} />
             {i === current && <div className="absolute inset-0 rounded-full bg-white/30 origin-left" style={{ animation: "progressBar 4s linear infinite" }} />}
           </button>
         ))}

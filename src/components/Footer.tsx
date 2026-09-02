@@ -79,7 +79,7 @@ export default function Footer() {
                   <span className="text-[14px] font-black">네이버 지도 바로가기 &gt;</span>
                   <strong className="text-[28px] leading-none">N</strong>
                 </a>
-                <a href={clinic.kakaoMapUrl} target="_blank" rel="noopener noreferrer" className="flex min-h-16 items-center justify-between rounded-xl bg-gradient-to-br from-[#1A3A6C] to-[#285A9D] px-5 py-4 text-white transition-all hover:-translate-y-1 hover:shadow-lg">
+                <a href={clinic.kakaoMapUrl} target="_blank" rel="noopener noreferrer" className="flex min-h-16 items-center justify-between rounded-xl bg-gradient-to-br from-[#2d7a53] to-[#1a5c3a] px-5 py-4 text-white transition-all hover:-translate-y-1 hover:shadow-lg">
                   <span className="text-[14px] font-black">카카오 지도 바로가기 &gt;</span>
                   <strong className="text-[28px] leading-none">K</strong>
                 </a>
@@ -99,10 +99,10 @@ export default function Footer() {
                 <Image src={clinic.logoSecondary} alt={clinic.name} width={300} height={90} className="h-10 w-auto object-contain" />
               ) : (
                 <span className="flex items-center gap-2">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#1A3A6C] text-white text-[16px] font-black">+</span>
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#3d9b6a] text-white text-[16px] font-black">+</span>
                   <span className="flex flex-col leading-none">
-                    <span className="text-[18px] font-black tracking-tight text-[#1A3A6C]">{clinic.shortName}</span>
-                    <span className="text-[10px] font-semibold tracking-widest text-[#4A90D9] uppercase">{clinic.englishName}</span>
+                    <span className="text-[18px] font-black tracking-tight text-[#3d9b6a]">{clinic.shortName}</span>
+                    <span className="text-[10px] font-semibold tracking-widest text-[#3d9b6a] uppercase">{clinic.englishName}</span>
                   </span>
                 </span>
               )}

@@ -50,39 +50,31 @@ export const clinic = {
   facilityNotice: "진료실·초음파실·X-RAY·진단검사·수액실을 편안하게 이용하실 수 있습니다."
 } as const;
 
-// 병원 실제 사진 (public/clinic-photos/) — 내포아산 사진으로 교체 필요
 export const suppliedImages = [
-  "/clinic-photos/1.jpg",
-  "/clinic-photos/2.jpg",
-  "/clinic-photos/3.jpg",
-  "/clinic-photos/KakaoTalk_20260722_104631711_25.jpg",
-  "/clinic-photos/KakaoTalk_20260722_104631711_27.jpg",
-  "/clinic-photos/KakaoTalk_20260722_104631711_28.jpg",
-  "/clinic-photos/6.jpg",
-  "/clinic-photos/7.jpg",
-  "/clinic-photos/8.jpg",
-  "/clinic-photos/9.jpg",
-  "/clinic-photos/11.jpg",
-  "/clinic-photos/16.jpg",
+  "/clinic-photos/p-reception-wide.jpg",
+  "/clinic-photos/p-reception.png",
+  "/clinic-photos/p-counter.png",
+  "/clinic-photos/p-hallway.png",
+  "/clinic-photos/p-kids.png",
+  "/clinic-photos/p-respiratory.png",
+  "/clinic-photos/p-waiting.png",
+  "/clinic-photos/p-iv-room.png",
+  "/clinic-photos/p-corridor.png",
+  "/clinic-photos/p-hallway2.png",
 ];
 
 export const pickImage = (index: number) => suppliedImages[index % suppliedImages.length];
 
 export const tourGallery = [
-  { label: "외관", src: "/clinic-photos/1.jpg" },
-  { label: "대기실", src: "/clinic-photos/2.jpg" },
-  { label: "대기실", src: "/clinic-photos/3.jpg" },
-  { label: "대기실", src: "/clinic-photos/KakaoTalk_20260722_104631711_25.jpg" },
-  { label: "대기실", src: "/clinic-photos/KakaoTalk_20260722_104631711_27.jpg" },
-  { label: "대기실", src: "/clinic-photos/KakaoTalk_20260722_104631711_28.jpg" },
-  { label: "상담실", src: "/clinic-photos/KakaoTalk_20260722_104631711_07.jpg" },
-  { label: "초음파실", src: "/clinic-photos/6.jpg" },
-  { label: "초음파 기기", src: "/clinic-photos/7.jpg" },
-  { label: "진단검사센터", src: "/clinic-photos/16.jpg" },
-  { label: "X-RAY실", src: "/clinic-photos/13.jpg" },
-  { label: "X-RAY 기기", src: "/clinic-photos/15.jpg" },
-  { label: "수액실", src: "/clinic-photos/8.jpg" },
-  { label: "1인 수액실", src: "/clinic-photos/11.jpg" },
+  { label: "접수 데스크", src: "/clinic-photos/p-reception-wide.jpg" },
+  { label: "접수 데스크", src: "/clinic-photos/p-reception.png" },
+  { label: "카운터", src: "/clinic-photos/p-counter.png" },
+  { label: "복도", src: "/clinic-photos/p-hallway.png" },
+  { label: "유아 대기실", src: "/clinic-photos/p-kids.png" },
+  { label: "호흡기 치료실", src: "/clinic-photos/p-respiratory.png" },
+  { label: "대기실", src: "/clinic-photos/p-waiting.png" },
+  { label: "수액실", src: "/clinic-photos/p-iv-room.png" },
+  { label: "복도", src: "/clinic-photos/p-corridor.png" },
 ];
 
 export const navItems: NavItem[] = [
@@ -191,7 +183,6 @@ export const doctors: Doctor[] = [
     societies: [
       "대한내과학회 정회원",
       "대한소화기학회 정회원",
-      "대한소화기내시경학회 정회원",
       "대한임상초음파학회 정회원",
       "대한고혈압학회 정회원",
       "대한당뇨병학회 정회원"
@@ -201,15 +192,14 @@ export const doctors: Doctor[] = [
 ];
 
 export const serviceCards = [
-  { title: "건강검진센터", desc: "국가검진부터 맞춤 검진까지\n질병의 조기 발견과 예방", image: pickImage(0), href: "/checkup/cancer" },
-  { title: "만성질환클리닉", desc: "고혈압·당뇨·고지혈증\n개인별 장기 관리", image: pickImage(1), href: "/chronic/hypertension" },
-  { title: "수액클리닉", desc: "맞춤형 수액·1인실\n편안하고 프리미엄한 치료", image: pickImage(6), href: "/special/iv-therapy" },
-  { title: "특수클리닉", desc: "비만·골다공증·초음파\n삶의 질을 높이는 진료", image: pickImage(3), href: "/special/obesity" }
+  { title: "건강검진센터", desc: "국가검진부터 맞춤 검진까지\n질병의 조기 발견과 예방", image: "/clinic-photos/p-reception.png", href: "/checkup/cancer", tag: "HEALTH CHECK" },
+  { title: "만성질환클리닉", desc: "고혈압·당뇨·고지혈증\n개인별 장기 관리 플랜", image: "/clinic-photos/p-hallway.png", href: "/chronic/hypertension", tag: "CHRONIC CARE" },
+  { title: "수액클리닉", desc: "1인 개별 수액실\n프리미엄 맞춤 수액 케어", image: "/clinic-photos/p-iv-room.png", href: "/special/iv-therapy", tag: "IV THERAPY" },
+  { title: "호흡기·알레르기", desc: "감기·기관지염·천식\n호흡기 전문 진료", image: "/clinic-photos/p-respiratory.png", href: "/departments/respiratory", tag: "RESPIRATORY" },
 ];
 
 export const imageSet = {
-  hero: [pickImage(0), pickImage(1), pickImage(3)],
-  endoscopy: pickImage(6),
+  hero: [pickImage(0), pickImage(7), pickImage(4)],
   equipment: pickImage(7),
   gallery: suppliedImages
 };

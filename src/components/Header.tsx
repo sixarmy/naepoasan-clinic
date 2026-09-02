@@ -13,9 +13,7 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
-    const onResize = () => {
-      if (window.innerWidth >= 1200) setMobileOpen(false);
-    };
+    const onResize = () => { if (window.innerWidth >= 1200) setMobileOpen(false); };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
@@ -26,71 +24,37 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = mobileOpen ? "hidden" : previousOverflow;
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = mobileOpen ? "hidden" : prev;
+    return () => { document.body.style.overflow = prev; };
   }, [mobileOpen]);
 
   return (
     <>
-      <header
-        className={`group/header fixed left-0 top-0 z-[99990] w-full border-b border-[#EEEEEE] bg-white transition-shadow duration-300 ${
-          scrolled ? "shadow-[0_4px_15px_rgba(26,58,108,0.08)]" : ""
-        }`}
-      >
-        <div className="absolute left-0 top-[80px] hidden h-0 w-full border-y border-transparent bg-white shadow-none transition-all duration-300 group-hover/header:h-[340px] group-hover/header:border-y-[#e5e7eb] group-hover/header:shadow-[0_10px_20px_rgba(0,0,0,0.06)] xl:block" />
+      <header className={`group/header fixed left-0 top-0 z-[99990] w-full border-b border-[#EEEEEE] bg-white transition-shadow duration-300 ${scrolled ? "shadow-[0_4px_15px_rgba(61,155,106,0.10)]" : ""}`}>
+        {/* 데스크톱 드롭다운 배경 */}
+        <div className="absolute left-0 top-[72px] hidden h-0 w-full border-y border-transparent bg-white shadow-none transition-all duration-300 group-hover/header:h-[340px] group-hover/header:border-y-[#e5e7eb] group-hover/header:shadow-[0_10px_20px_rgba(0,0,0,0.06)] xl:block" />
 
-        <div className="relative z-20 mx-auto flex h-[60px] max-w-[1680px] items-center justify-end px-4 xl:h-20 xl:justify-between xl:px-6 2xl:px-8">
-          <Link
-            href="/"
-            className="absolute left-1/2 top-1/2 flex h-full w-[150px] -translate-x-1/2 -translate-y-1/2 items-center justify-center min-[380px]:w-[170px] sm:w-[190px] xl:static xl:w-auto xl:translate-x-0 xl:translate-y-0"
-            aria-label={`${clinic.shortName} 메인으로 이동`}
-          >
-            {clinic.logoPrimary ? (
-              <Image
-                src={clinic.logoPrimary}
-                alt={clinic.name}
-                width={520}
-                height={160}
-                className="h-auto max-h-[30px] w-full max-w-full object-contain xl:h-[56px] xl:max-h-none xl:w-auto"
-                priority
-              />
-            ) : (
-              <span className="flex items-center gap-1.5">
-                <span className="flex h-7 w-7 xl:h-9 xl:w-9 items-center justify-center rounded-full bg-[#1A3A6C] text-white text-[13px] xl:text-[16px] font-black">+</span>
-                <span className="flex flex-col leading-none">
-                  <span className="text-[13px] xl:text-[17px] font-black tracking-tight text-[#1A3A6C]">{clinic.shortName}</span>
-                  <span className="text-[8px] xl:text-[10px] font-semibold tracking-widest text-[#4A90D9] uppercase">{clinic.englishName}</span>
-                </span>
-              </span>
-            )}
+        <div className="relative z-20 mx-auto flex h-[72px] max-w-[1680px] items-center justify-end px-4 xl:h-[88px] xl:justify-between xl:px-6 2xl:px-8">
+          {/* 로고 */}
+          <Link href="/" className="absolute left-1/2 top-1/2 flex h-full w-[230px] -translate-x-1/2 -translate-y-1/2 items-center justify-center min-[380px]:w-[270px] sm:w-[320px] xl:static xl:w-auto xl:translate-x-0 xl:translate-y-0" aria-label={`${clinic.shortName} 메인으로 이동`}>
+            <Image src={clinic.logoPrimary} alt={clinic.name} width={520} height={160} className="h-auto max-h-[54px] w-full max-w-full object-contain xl:h-[72px] xl:max-h-none xl:w-auto" priority />
           </Link>
 
+          {/* 데스크톱 네비 */}
           <nav className="hidden h-full min-w-0 flex-1 px-4 xl:block" aria-label={`${clinic.shortName} 주요 메뉴`}>
             <ul className="flex h-full justify-center">
               {navItems.map((item) => (
                 <li key={item.label} className="group/menu relative flex h-full min-w-[94px] max-w-[142px] flex-1 items-stretch justify-center text-center 2xl:min-w-[118px]">
-                  <Link
-                    href={item.href}
-                    className="relative z-20 flex h-full w-full items-center justify-center px-1.5 text-[14px] font-semibold leading-tight tracking-[-0.04em] text-[#333333] transition-colors duration-200 group-hover/menu:bg-[#1A3A6C] group-hover/menu:text-white 2xl:text-[16px]"
-                  >
+                  <Link href={item.href} className="relative z-20 flex h-full w-full items-center justify-center px-1.5 text-[14px] font-semibold leading-tight tracking-[-0.04em] text-[#333] transition-colors duration-200 group-hover/menu:bg-[#3d9b6a] group-hover/menu:text-white 2xl:text-[16px]">
                     {item.label}
                   </Link>
                   {item.children && (
-                    <ul className="invisible absolute left-0 top-full z-30 w-full px-1 pb-8 pt-6 opacity-0 transition-opacity duration-300 group-hover/header:visible group-hover/header:opacity-100 group-hover/menu:bg-[#1A3A6C]">
+                    <ul className="invisible absolute left-0 top-full z-30 w-full bg-[#3d9b6a] px-1 pb-8 pt-6 opacity-0 transition-all duration-300 group-hover/menu:visible group-hover/menu:opacity-100">
                       {item.children.map((sub) => (
                         <li key={sub.label} className="mb-3 last:mb-0">
-                          <Link
-                            href={sub.disabled ? "#" : sub.href}
-                            onClick={(e) => sub.disabled && e.preventDefault()}
-                            className={`block rounded-md px-1 py-1 text-[13px] font-light leading-snug tracking-[-0.05em] transition-all 2xl:text-[14px] ${
-                              sub.disabled
-                                ? "cursor-not-allowed text-[#b8c1cc]"
-                                : "text-[#666666] group-hover/menu:text-white/65 hover:bg-white/10 hover:text-white"
-                            }`}
-                          >
+                          <Link href={sub.disabled ? "#" : sub.href} onClick={(e) => sub.disabled && e.preventDefault()}
+                            className={`block rounded-md px-1 py-1 text-[13px] font-light leading-snug tracking-[-0.05em] transition-all 2xl:text-[14px] ${sub.disabled ? "cursor-not-allowed text-white/40" : "text-white/70 hover:bg-white/10 hover:text-white"}`}>
                             {sub.label}
                           </Link>
                         </li>
@@ -102,30 +66,19 @@ export default function Header() {
             </ul>
           </nav>
 
+          {/* 데스크톱 우측 버튼 */}
           <div className="hidden shrink-0 items-center gap-2 xl:flex">
-            <Link
-              href="/about/hours"
-              className="inline-flex items-center rounded-full bg-[#E8F4FD] px-4 py-2.5 text-[13px] font-bold text-[#1A3A6C] transition-all hover:-translate-y-0.5 hover:bg-[#d9ecfb]"
-            >
+            <Link href="/about/hours" className="inline-flex items-center rounded-full bg-[#e8f5ed] px-4 py-2.5 text-[13px] font-bold text-[#3d9b6a] transition-all hover:-translate-y-0.5 hover:bg-[#d4eedd]">
               진료시간 안내
             </Link>
-            <button
-              onClick={handleReservation}
-              className="inline-flex items-center gap-2 rounded-full bg-[#1A3A6C] px-4 py-2.5 text-[13px] font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-[#2B5BA8]"
-            >
+            <button onClick={handleReservation} className="inline-flex items-center gap-2 rounded-full bg-[#3d9b6a] px-4 py-2.5 text-[13px] font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-[#2d7a53]">
               <PhoneIcon />
-              {clinic.phone ? clinic.phone : clinic.phoneLabel}
+              {clinic.phone || clinic.phoneLabel}
             </button>
           </div>
 
-          <button
-            type="button"
-            className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-full text-[#1A3A6C] xl:hidden"
-            onClick={() => setMobileOpen(true)}
-            aria-label="메뉴 열기"
-            aria-controls="daon-mobile-nav"
-            aria-expanded={mobileOpen}
-          >
+          {/* 모바일 햄버거 */}
+          <button type="button" className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-full text-[#3d9b6a] xl:hidden" onClick={() => setMobileOpen(true)} aria-label="메뉴 열기" aria-controls="naepo-mobile-nav" aria-expanded={mobileOpen}>
             <span className="block h-0.5 w-[22px] rounded-full bg-current" />
             <span className="block h-0.5 w-[22px] rounded-full bg-current" />
             <span className="block h-0.5 w-[22px] rounded-full bg-current" />
@@ -133,15 +86,11 @@ export default function Header() {
         </div>
       </header>
 
-      <div
-        className={`fixed inset-0 z-[99995] bg-black/45 transition-opacity xl:hidden ${mobileOpen ? "opacity-100" : "pointer-events-none opacity-0"}`}
-        onClick={() => setMobileOpen(false)}
-      />
-      <aside
-        id="daon-mobile-nav"
-        className={`fixed right-0 top-0 z-[99999] flex h-[100svh] w-full flex-col bg-[#1A3A6C] text-white shadow-2xl transition-transform duration-300 xl:hidden ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
-        aria-hidden={!mobileOpen}
-      >
+      {/* 모바일 오버레이 */}
+      <div className={`fixed inset-0 z-[99995] bg-black/45 transition-opacity xl:hidden ${mobileOpen ? "opacity-100" : "pointer-events-none opacity-0"}`} onClick={() => setMobileOpen(false)} />
+
+      {/* 모바일 사이드 메뉴 */}
+      <aside id="naepo-mobile-nav" className={`fixed right-0 top-0 z-[99999] flex h-[100svh] w-full flex-col bg-[#3d9b6a] text-white shadow-2xl transition-transform duration-300 xl:hidden ${mobileOpen ? "translate-x-0" : "translate-x-full"}`} aria-hidden={!mobileOpen}>
         <div className="flex h-[60px] shrink-0 items-center justify-between border-b border-white/10 px-5">
           <Image src={clinic.logoSecondary} alt={clinic.name} width={260} height={90} className="h-[24px] max-w-[190px] w-auto object-contain brightness-0 invert" />
           <button type="button" onClick={() => setMobileOpen(false)} className="flex h-10 w-10 items-center justify-end text-2xl" aria-label="메뉴 닫기">✕</button>
@@ -149,7 +98,7 @@ export default function Header() {
 
         <button onClick={handleReservation} className="flex shrink-0 items-center justify-center gap-2 border-b border-white/10 bg-white/5 px-5 py-4 text-[15px] font-bold text-white">
           <PhoneIcon />
-          {clinic.phone ? clinic.phone : clinic.phoneLabel}
+          {clinic.phone || clinic.phoneLabel}
         </button>
 
         <div className="flex-1 overflow-y-auto pb-10">
@@ -157,27 +106,17 @@ export default function Header() {
             {navItems.map((item, index) => {
               const isOpen = openIndex === index;
               return (
-                <li key={item.label} className="border-b border-white/8">
-                  <button
-                    type="button"
-                    className={`flex w-full items-center justify-between px-5 py-5 text-left text-[16px] font-bold tracking-[-0.04em] min-[390px]:text-[17px] ${isOpen ? "text-[#7dd3fc]" : "text-white"}`}
-                    onClick={() => setOpenIndex(isOpen ? null : index)}
-                  >
+                <li key={item.label} className="border-b border-white/10">
+                  <button type="button" className={`flex w-full items-center justify-between px-5 py-5 text-left text-[16px] font-bold tracking-[-0.04em] min-[390px]:text-[17px] ${isOpen ? "text-[#c8f5df]" : "text-white"}`} onClick={() => setOpenIndex(isOpen ? null : index)}>
                     {item.label}
                     <span className={`text-xs transition-transform ${isOpen ? "rotate-180" : ""}`}>▼</span>
                   </button>
                   <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[520px]" : "max-h-0"}`}>
                     <div className="px-5 pb-4">
                       {item.children?.map((sub) => (
-                        <Link
-                          key={sub.label}
-                          href={sub.disabled ? "#" : sub.href}
-                          onClick={(e) => {
-                            if (sub.disabled) e.preventDefault();
-                            else setMobileOpen(false);
-                          }}
-                          className={`block rounded-lg px-3 py-2.5 text-[14px] leading-snug ${sub.disabled ? "text-white/30" : "text-white/62 hover:bg-white/8 hover:text-white"}`}
-                        >
+                        <Link key={sub.label} href={sub.disabled ? "#" : sub.href}
+                          onClick={(e) => { if (sub.disabled) e.preventDefault(); else setMobileOpen(false); }}
+                          className={`block rounded-lg px-3 py-2.5 text-[14px] leading-snug ${sub.disabled ? "text-white/30" : "text-white/65 hover:bg-white/10 hover:text-white"}`}>
                           {sub.label}
                         </Link>
                       ))}

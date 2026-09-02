@@ -54,7 +54,7 @@ export default function EndoscopyShowcase() {
 
   return (
     <section ref={sectionRef} className="relative py-12 sm:py-28 md:py-36 overflow-hidden">
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat endoscopy-ken-burns" style={{ backgroundImage: `url('${imageSet.endoscopy}')` }} />
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat endoscopy-ken-burns" style={{ backgroundImage: `url('${imageSet.equipment}')` }} />
       <div className="absolute inset-0 bg-gradient-to-r from-navy-900/95 via-navy-900/80 to-navy-900/60" />
       <div className="absolute inset-0 bg-gradient-to-b from-navy-900/40 via-transparent to-navy-900/70" />
 

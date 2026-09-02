@@ -13,14 +13,14 @@ export const metadata: Metadata = {
     default: `${clinic.name} | 내과 전문 진료`,
     template: `%s | ${clinic.name}`
   },
-  description: `${clinic.name} - ${clinic.address}. 내과전문의, 소화기내시경 세부전문의가 함께하는 내과·건강검진·위대장내시경·만성질환 진료.`,
+  description: `${clinic.name} - ${clinic.address}. 가정의학과 전문의가 함께하는 내과·건강검진·만성질환·수액클리닉 진료.`,
   keywords: [
     "내포아산내과", "예산내과", "삽교내과", "내포신도시내과", "건강검진",
     "고혈압", "당뇨", "고지혈증", "수액클리닉", "초음파"
   ],
   openGraph: {
     title: `${clinic.name} | 내과 전문 진료`,
-    description: `${clinic.address}에 위치한 내과·검진·내시경 중심 의원입니다.`,
+    description: `${clinic.address}에 위치한 내과·건강검진·만성질환·수액클리닉 전문 의원입니다.`,
     type: "website",
     locale: "ko_KR",
     siteName: clinic.name,

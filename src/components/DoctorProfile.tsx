@@ -6,7 +6,7 @@ import type { Doctor } from "@/lib/clinic";
 
 export default function DoctorProfile({ doctor, index }: { doctor: Doctor; index: number }) {
   return (
-    <section className={`bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-28 ${index % 2 === 1 ? "lg:bg-[#fbfcfe]" : ""}`}>
+    <section className={`bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-10 lg:py-28 ${index % 2 === 1 ? "lg:bg-[#f9fdf9]" : ""}`}>
       <div className={`mx-auto flex max-w-[1100px] flex-col gap-9 lg:gap-16 ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} lg:items-end`}>
         <ScrollReveal className="lg:w-[calc(50%-32px)]">
           <div className="flex h-[300px] items-end justify-center sm:h-[420px] lg:h-[720px]">
@@ -15,15 +15,7 @@ export default function DoctorProfile({ doctor, index }: { doctor: Doctor; index
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={doctor.photo} alt={`${doctor.name} 원장`} className="h-full w-full object-contain object-bottom" />
               ) : (
-                <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-[#EAF2FB] to-[#C5DEFF] gap-4">
-                  <div className="flex h-28 w-28 items-center justify-center rounded-full bg-[#1A3A6C] text-white text-[48px] font-black shadow-lg">
-                    {doctor.name.charAt(0)}
-                  </div>
-                  <div className="text-center">
-                    <p className="text-[18px] font-black text-[#1A3A6C]">{doctor.name} 원장</p>
-                    <p className="text-[13px] text-[#4A90D9] font-semibold mt-1">{doctor.role}</p>
-                  </div>
-                </div>
+                <div className="h-full w-full bg-[#e8f5ed]" />
               )}
             </div>
           </div>
@@ -31,23 +23,23 @@ export default function DoctorProfile({ doctor, index }: { doctor: Doctor; index
 
         <div className="flex-1 lg:min-h-[720px] lg:py-12">
           <ScrollReveal>
-            <span className="mb-3 block text-[11px] font-black uppercase tracking-[0.18em] text-[#4A90D9]">OUR DOCTOR</span>
+            <span className="mb-3 block text-[11px] font-black uppercase tracking-[0.18em] text-[#3d9b6a]">OUR DOCTOR</span>
             <h2 className="mb-5 text-[30px] font-black leading-tight tracking-[-0.04em] text-[#111] sm:text-[38px]">
               {doctor.name} 원장<br />
-              <span className="text-[20px] font-extrabold text-[#1A3A6C] sm:text-[24px]">{doctor.role}</span>
+              <span className="text-[20px] font-extrabold text-[#3d9b6a] sm:text-[24px]">{doctor.role}</span>
             </h2>
-            <blockquote className="mb-8 border-l-4 border-[#C4D4E8] pl-4 font-serif text-[16px] font-semibold leading-[1.75] text-[#1A3A6C] sm:text-[18px]">
+            <blockquote className="mb-8 border-l-4 border-[#c8ebd9] pl-4 font-serif text-[16px] font-semibold leading-[1.75] text-[#3d9b6a] sm:text-[18px]">
               &ldquo;{doctor.quote}&rdquo;
             </blockquote>
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
             <div className="mb-5 h-px bg-[#eeeeee]" />
-            <span className="mb-1 block text-xs font-bold uppercase tracking-[0.06em] text-[#999]">내과 전문의</span>
+            <span className="mb-1 block text-xs font-bold uppercase tracking-[0.06em] text-[#999]">가정의학과 전문의</span>
             <h3 className="mb-4 text-[26px] font-black tracking-[-0.03em] text-[#111]">{doctor.name} 원장</h3>
             <div className="mb-7 grid grid-cols-1 gap-2 min-[420px]:grid-cols-2 sm:grid-cols-3">
               {doctor.badges.map((badge, i) => (
-                <span key={badge} className={`flex min-h-11 items-center justify-center rounded-[14px] border px-3 py-2 text-center text-[13px] font-black leading-snug tracking-[-0.04em] shadow-[0_6px_16px_rgba(26,58,108,0.07)] ${i === doctor.badges.length - 1 ? "min-[420px]:col-span-2 sm:col-span-3 border-[#1A3A6C] bg-[#1A3A6C] text-white" : "border-[#1A3A6C]/20 bg-gradient-to-br from-[#F2F8FF] to-white text-[#1A3A6C]"}`}>
+                <span key={badge} className={`flex min-h-11 items-center justify-center rounded-[14px] border px-3 py-2 text-center text-[13px] font-black leading-snug tracking-[-0.04em] shadow-[0_6px_16px_rgba(61,155,106,0.07)] ${i === doctor.badges.length - 1 ? "min-[420px]:col-span-2 sm:col-span-3 border-[#3d9b6a] bg-[#3d9b6a] text-white" : "border-[#3d9b6a]/20 bg-gradient-to-br from-[#f4fbf7] to-white text-[#3d9b6a]"}`}>
                   {badge}
                 </span>
               ))}
@@ -83,18 +75,12 @@ function AccordionSection({ title, items }: { title: string; items: string[] }) 
 
   return (
     <div className="overflow-hidden rounded-xl border border-[#e8e8e8]">
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors hover:bg-[#f8fafc]"
-      >
+      <button onClick={() => setOpen((v) => !v)} className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors hover:bg-[#f4fbf7]">
         <h4 className="flex items-center gap-2.5 text-[15px] font-black tracking-[-0.03em] text-[#111]">
-          <span className="h-2.5 w-2.5 shrink-0 rounded-sm bg-[#1A3A6C]" />
+          <span className="h-2.5 w-2.5 shrink-0 rounded-sm bg-[#3d9b6a]" />
           {title}
         </h4>
-        <svg
-          className={`ml-3 h-4 w-4 shrink-0 text-[#999] transition-transform duration-300 ${open ? "rotate-180" : ""}`}
-          fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
-        >
+        <svg className={`ml-3 h-4 w-4 shrink-0 text-[#999] transition-transform duration-300 ${open ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
