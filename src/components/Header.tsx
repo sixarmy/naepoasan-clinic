@@ -33,12 +33,12 @@ export default function Header() {
     <>
       <header className={`group/header fixed left-0 top-0 z-[99990] w-full border-b border-[#EEEEEE] bg-white transition-shadow duration-300 ${scrolled ? "shadow-[0_4px_15px_rgba(61,155,106,0.10)]" : ""}`}>
         {/* 데스크톱 드롭다운 배경 */}
-        <div className="absolute left-0 top-[300px] hidden h-0 w-full border-y border-transparent bg-white shadow-none transition-all duration-300 group-hover/header:h-[340px] group-hover/header:border-y-[#e5e7eb] group-hover/header:shadow-[0_10px_20px_rgba(0,0,0,0.06)] xl:block" />
+        <div className="absolute left-0 top-[500px] hidden h-0 w-full border-y border-transparent bg-white shadow-none transition-all duration-300 group-hover/header:h-[340px] group-hover/header:border-y-[#e5e7eb] group-hover/header:shadow-[0_10px_20px_rgba(0,0,0,0.06)] xl:block" />
 
-        <div className="relative z-20 mx-auto flex h-[210px] max-w-[1680px] items-center justify-end px-4 xl:h-[300px] xl:justify-between xl:px-6 2xl:px-8">
+        <div className="relative z-20 mx-auto flex h-[320px] max-w-[1680px] items-center justify-end px-4 xl:h-[500px] xl:justify-between xl:px-6 2xl:px-8">
           {/* 로고 */}
-          <Link href="/" className="absolute left-1/2 top-1/2 flex h-full w-[380px] -translate-x-1/2 -translate-y-1/2 items-center justify-center min-[380px]:w-[420px] sm:w-[560px] xl:static xl:w-auto xl:translate-x-0 xl:translate-y-0" aria-label={`${clinic.shortName} 메인으로 이동`}>
-            <Image src={clinic.logoPrimary} alt={clinic.name} width={1000} height={300} className="h-auto max-h-[192px] w-full max-w-full object-contain xl:h-[280px] xl:max-h-none xl:w-auto" priority />
+          <Link href="/" className="absolute left-1/2 top-1/2 flex h-full w-[90vw] -translate-x-1/2 -translate-y-1/2 items-center justify-center xl:static xl:w-auto xl:translate-x-0 xl:translate-y-0" aria-label={`${clinic.shortName} 메인으로 이동`}>
+            <Image src={clinic.logoPrimary} alt={clinic.name} width={1200} height={400} className="h-auto max-h-[280px] w-full max-w-full object-contain xl:h-[440px] xl:max-h-none xl:w-auto" priority />
           </Link>
 
           {/* 데스크톱 네비 */}
